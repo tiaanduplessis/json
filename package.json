@@ -1,0 +1,44 @@
+{
+  "name": "@tiaanduplessis/json",
+  "version": "1.0.0",
+  "description": "Nicer JSON parse and stringify",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/tiaanduplessis/json",
+    "type": "git"
+  },
+  "homepage": "https://github.com/tiaanduplessis/json",
+  "bugs": "https://github.com/tiaanduplessis/json",
+  "main": "dist/json.js",
+  "browser": "dist/json.js",
+  "jsnext:main": "dist/json.es.js",
+  "files": ["dist"],
+  "scripts": {
+    "test": "jest",
+    "lint": "standard 'src/**/*.js'",
+    "lint:fix": "npm run lint -- --fix",
+    "build": "bili --format es --format umd --compress",
+    "start": "npm run test",
+    "pretest": "npm run format && npm run lint:fix",
+    "format": "prettier --print-width 100 --semi false --single-quote --write 'src/**/*.js'",
+    "precommit": "npm test",
+    "prepublish": "npm run build",
+    "release": "npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push --tags && npm publish"
+  },
+  "author": "tiaanduplessis <tiaanduplessis@hotmail.com>",
+  "babel": {
+    "presets": [["env"]]
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.4.0",
+    "bili": "^0.17.3",
+    "husky": "^0.14.3",
+    "jest": "^20.0.1",
+    "prettier": "~1.5.2",
+    "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "json-stringify-safe": "^5.0.1",
+    "parse-json": "^2.2.0"
+  }
+}
