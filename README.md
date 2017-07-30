@@ -55,7 +55,7 @@
 
 ## About
 
-A Tiny wrapper around [parse-json](https://www.npmjs.com/package/parse-json) and [json-stringify-safe](https://www.npmjs.com/package/json-stringify-safe) to bundle them together and add support for handling parse errors via a callback.
+A Tiny wrapper around [parse-json](https://www.npmjs.com/package/parse-json) and [fast-json-stringify](https://github.com/fastify/fast-json-stringify) to bundle them together and add support for handling parse errors via a callback.
 
 ## Install
 
