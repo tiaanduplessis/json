@@ -4,7 +4,7 @@
 	(global.json = factory());
 }(this, (function () { 'use strict';
 
-var stringify = require('json-stringify-safe');
+var stringify = require('fast-json-stringify');
 var parseJSON = require('parse-json');
 
 var JSON = {
