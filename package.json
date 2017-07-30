@@ -44,7 +44,7 @@
     "standard": "^10.0.2"
   },
   "dependencies": {
-    "fast-json-stringify": "^0.12.2",
+    "fast-safe-stringify": "^1.2.0",
     "parse-json": "^2.2.0"
   }
 }

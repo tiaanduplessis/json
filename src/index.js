@@ -1,4 +1,4 @@
-const stringify = require('fast-json-stringify')
+const stringify = require('fast-safe-stringify')
 const parseJSON = require('parse-json')
 
 const JSON = {
