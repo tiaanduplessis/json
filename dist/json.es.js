@@ -1,4 +1,4 @@
-var stringify = require('fast-json-stringify');
+var stringify = require('fast-safe-stringify');
 var parseJSON = require('parse-json');
 
 var JSON = {
