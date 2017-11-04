@@ -55,6 +55,8 @@
 
 ## About
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/json.svg)](https://greenkeeper.io/)
+
 A Tiny wrapper around [parse-json](https://www.npmjs.com/package/parse-json) and [fast-safe-stringify](https://github.com/davidmarkclements/fast-safe-stringify) to bundle them together and add support for handling parse errors via a callback.
 
 ## Install
