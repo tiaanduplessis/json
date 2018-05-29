@@ -1,6 +1,6 @@
 {
   "name": "@tiaanduplessis/json",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Promisified & memoized parse-json & fast-safe-stringify bundled together",
   "license": "MIT",
   "repository": {
