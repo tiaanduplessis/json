@@ -1,0 +1,2 @@
+!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?module.exports=n():"function"==typeof define&&define.amd?define(n):e.json=n()}(this,function(){var e=require("fast-safe-stringify"),n=require("parse-json"),t=new Map;return{stringify:e,parse:function(e,r,i){return t.has(e)?Promise.resolve(t.get(e)):new Promise(function(o,f){try{var s=n(e,r,i);t.set(e,s),o(s)}catch(e){f(e)}})}}});
+//# sourceMappingURL=json.umd.js.map

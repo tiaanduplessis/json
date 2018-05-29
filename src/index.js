@@ -1,20 +1,24 @@
 const stringify = require('fast-safe-stringify')
 const parseJSON = require('parse-json')
 
+let parsed = new Map()
+
 const JSON = {
   stringify,
-  parse (json, reviver, filename, cb) {
-    if (arguments.length === 2) {
-      cb = reviver
-      reviver = null
+  parse (json, reviver, filename) {
+    if (parsed.has(json)) {
+      return Promise.resolve(parsed.get(json))
     }
 
-    try {
-      const result = parseJSON(json, reviver, filename)
-      cb(null, result)
-    } catch (error) {
-      cb(error)
-    }
+    return new Promise((resolve, reject) => {
+      try {
+        const result = parseJSON(json, reviver, filename)
+        parsed.set(json, result)
+        resolve(result)
+      } catch (error) {
+        reject(error)
+      }
+    })
   }
 }
 

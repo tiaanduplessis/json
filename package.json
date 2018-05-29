@@ -1,7 +1,7 @@
 {
   "name": "@tiaanduplessis/json",
-  "version": "1.1.2",
-  "description": "Nicer JSON parse and stringify",
+  "version": "2.0.0",
+  "description": "Promisified & memoized parse-json & fast-safe-stringify bundled together",
   "license": "MIT",
   "repository": {
     "url": "https://github.com/tiaanduplessis/json",
@@ -9,25 +9,29 @@
   },
   "homepage": "https://github.com/tiaanduplessis/json",
   "bugs": "https://github.com/tiaanduplessis/json",
+  "source": "src/index.js",
   "main": "dist/json.js",
-  "browser": "dist/json.js",
-  "jsnext:main": "dist/json.es.js",
+  "browser": "dist/json.umd.js",
+  "module": "dist/json.m.js",
   "files": [
     "dist"
   ],
   "scripts": {
     "test": "jest",
-    "lint": "standard 'src/**/*.js'",
-    "lint:fix": "npm run lint -- --fix",
-    "build": "bili --format es --format umd --compress",
-    "start": "npm run test",
-    "pretest": "npm run format && npm run lint:fix",
-    "format": "prettier --print-width 100 --semi false --single-quote --write 'src/**/*.js'",
-    "precommit": "npm test",
-    "prepublish": "npm run build",
-    "release": "npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push --tags && npm publish"
+    "lint": "standard --fix",
+    "build": "microbundle"
   },
-  "author": "tiaanduplessis <tiaanduplessis@hotmail.com>",
+  "author": "Tiaan du Plessis",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.0.1",
+    "microbundle": "^0.4.4",
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "fast-safe-stringify": "^2.0.4",
+    "parse-json": "^4.0.0"
+  },
   "babel": {
     "presets": [
       [
@@ -35,16 +39,9 @@
       ]
     ]
   },
-  "devDependencies": {
-    "babel-preset-env": "^1.4.0",
-    "bili": "^3.0.13",
-    "husky": "^0.14.3",
-    "jest": "^21.2.1",
-    "standard": "^11.0.0",
-    "prettier": "~1.12.0"
-  },
-  "dependencies": {
-    "fast-safe-stringify": "^2.0.0",
-    "parse-json": "^3.0.0"
+  "standard": {
+    "env": {
+      "jest": true
+    }
   }
 }

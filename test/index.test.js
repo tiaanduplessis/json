@@ -6,11 +6,23 @@ test('should provide stringify and parse functions', () => {
   expect(JSON.stringify).toBeDefined()
 })
 
-test('should pass parse result to callback', () => {
+test('should return promise with result', async () => {
   const str = '{"foo": "5"}'
+  const result = await JSON.parse(str)
+  expect(result).toBeDefined()
+  expect(result.foo).toBe('5')
+})
 
-  JSON.parse(str, (error, result) => {
-    expect(error).toBeFalsy()
-    expect(result).toBeTruthy()
-  })
+
+test('should reject if invalid json', () => {
+  const str = '{"foo": "5"'
+  expect(JSON.parse(str)).rejects.toThrowError()
+})
+
+test('should get preparsed string from cache', async () => {
+  const str = '{"foo": "5"}'
+  await JSON.parse(str)
+  const result = await JSON.parse(str)
+  expect(result).toBeDefined()
+  expect(result.foo).toBe('5')
 })
