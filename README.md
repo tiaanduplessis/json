@@ -29,6 +29,11 @@ $ yarn add @tiaanduplessis/json
 
 ## Usage
 
+`parse(json, reviver, filename)` returns a Promise. Calls without a function
+reviver are memoized by JSON text and reuse the same parsed value. A function
+reviver runs on every call, even for previously parsed text, and its result is
+not cached.
+
 ```js
 import JSON from '@tiaanduplessis/json'
 

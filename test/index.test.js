@@ -13,10 +13,9 @@ test('should return promise with result', async () => {
   expect(result.foo).toBe('5')
 })
 
-
 test('should reject if invalid json', () => {
   const str = '{"foo": "5"'
-  expect(JSON.parse(str)).rejects.toThrowError()
+  return expect(JSON.parse(str)).rejects.toThrow()
 })
 
 test('should get preparsed string from cache', async () => {
